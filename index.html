@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Tonalidad de Color</title>
+    <!-- Agregar enlace a Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #miDiv {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 0, 0); /* Color inicial: rojo */
+        }
+        /* Estilos para el pie de página */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado con barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Cambiar Color</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div id="miDiv" class="rounded mb-3"></div>
+                <label for="red">Rojo:</label>
+                <input type="range" id="red" min="0" max="255" value="255" class="form-control">
+                <br>
+                <label for="green">Verde:</label>
+                <input type="range" id="green" min="0" max="255" value="0" class="form-control">
+                <br>
+                <label for="blue">Azul:</label>
+                <input type="range" id="blue" min="0" max="255" value="0" class="form-control">
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página con información de copyright -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 El Patron Records. Todos los derechos reservados. Amén.</p>
+        </div>
+    </footer>
+    
+    <!-- Agregar enlace a Bootstrap JS (opcional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        const redInput = document.getElementById("red");
+        const greenInput = document.getElementById("green");
+        const blueInput = document.getElementById("blue");
+        const miDiv = document.getElementById("miDiv");
+
+        // Función para actualizar el color del div
+        function actualizarColor() {
+            const red = redInput.value;
+            const green = greenInput.value;
+            const blue = blueInput.value;
+
+            miDiv.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        }
+
+        // Event listeners para los controles de rango
+        redInput.addEventListener("input", actualizarColor);
+        greenInput.addEventListener("input", actualizarColor);
+        blueInput.addEventListener("input", actualizarColor);
+
+        // Inicializar el color al cargar la página
+        actualizarColor();
+    </script>
+</body>
+</html>
